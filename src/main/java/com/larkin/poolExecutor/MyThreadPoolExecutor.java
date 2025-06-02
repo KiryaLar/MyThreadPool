@@ -146,12 +146,8 @@ public class MyThreadPoolExecutor implements Executor {
         return activeWorkersCounter.get();
     }
 
-    public List<Worker> getWorkers() {
-        return workers;
-    }
-
-    @Getter
-    public class Worker implements Runnable {
+    private class Worker implements Runnable {
+        @Getter
         private final int id;
         private final CustomBlockingQueue<Runnable> queue;
         private final boolean isCore;
